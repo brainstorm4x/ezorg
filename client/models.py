@@ -2,7 +2,7 @@ from ast import Sub
 from django.db import models
 
 # Create your models here.
-client_names = models.Choices(
+client_names =( 
     ('Labcorp', 'Labcorp'),
     ('Sevita', 'Sevita'),
     ('Cross Country', 'Cross Country'),
@@ -10,7 +10,7 @@ client_names = models.Choices(
     ('R1 RCM', 'R1 RCM'),
 )
 
-reminder_day = models.Choices(
+reminder_day = (
     ('Day 0', 'Day 0'),
     ('Day 1', 'Day 1'),
     ('Day 2', 'Day 2'),
@@ -33,8 +33,8 @@ class ClientsInfo(models.Model):
     subaccount = models.ForeignKey(Subaccount, null=True, on_delete=models.DO_NOTHING)
     client_mailbox = models.EmailField(unique=True)
     reminder_email_needed = models.BooleanField()
-    first_reminder_day = models.CharField(choices=reminder_day, null=True, blank=True)
-    second_reminder_day = models.CharField(choices=reminder_day, null=True, blank=True)
-    third_reminder_day = models.CharField(choices=reminder_day, null=True, blank=True)
+    first_reminder_day = models.CharField(choices=reminder_day, max_length=50, null=True, blank=True)
+    second_reminder_day = models.CharField(choices=reminder_day, max_length=50, null=True, blank=True)
+    third_reminder_day = models.CharField(choices=reminder_day, max_length=50, null=True, blank=True)
     
     
