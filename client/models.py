@@ -25,7 +25,7 @@ class Subaccount(models.Model):
     subaccount_id = models.IntegerField()
 
 class Clients(models.Model):
-    name = models.CharField(max_length=200, choices=client_names)
+    clientname = models.CharField(max_length=200, choices=client_names)
 
 class ClientsInfo(models.Model):
     clientname = models.ForeignKey(Clients, on_delete=models.DO_NOTHING)
